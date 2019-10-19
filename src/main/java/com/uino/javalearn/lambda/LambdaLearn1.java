@@ -1,5 +1,7 @@
 package com.uino.javalearn.lambda;
 
+import com.uino.javalearn.apple.Apple;
+
 import java.awt.event.ActionListener;
 import java.util.function.*;
 
@@ -28,12 +30,20 @@ public class LambdaLearn1 {
         Supplier<String> supplier=()->"hello world";
         System.out.println(supplier.get());
         UnaryOperator <String> unaryOperator=str->str;
-        System.out.println(unaryOperator);
+        System.out.println(unaryOperator.apply("hello world"));
         BinaryOperator <String> binaryOperator=(str,str1)->"helloworld";
-//        System.out.println(binaryOperator.);
+        System.out.println(binaryOperator.apply("111","2222"));
     }
 
+    public static void lambdaDemo1(){
+        int a=11111;
+        Apple b=new Apple();
+        b.setWeight(11);
+        int c=b.getWeight();
+        Consumer<String> consumer=str-> System.out.println("hi"+a+" "+c);
+        consumer.accept("111");
+    }
     public static void main(String []args){
-        lambdaDemo();
+        lambdaDemo1();
     }
 }
