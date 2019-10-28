@@ -3,8 +3,6 @@ package com.uino.javalearn.lambda;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.stream.Collectors.reducing;
-
 public class LambdaLearn2 {
     public static void main(String []args){
         lambdaDemo1();
@@ -48,6 +46,9 @@ public class LambdaLearn2 {
         list.add(student3);
         list.add(student4);
         /////////////////
-        int su=list.stream().collect(reducing(0,Student::getScored,Integer::sum));
+//        int su=list.stream().collect(reducing(0,Student::getScored,Integer::sum));
+
+
+
     }
 }
