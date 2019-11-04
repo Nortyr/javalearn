@@ -1,9 +1,9 @@
 package com.uino.javalearn.lambda;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class LambdaLearn2 {
     public static void main(String []args){
@@ -20,6 +20,7 @@ public class LambdaLearn2 {
         student.setClassname("高三一");
         student.setScored(100);
         student.setWeight(80.1);
+        student.setSex("女");
         student1.setSex("男");
         student1.setName("李四");
         student1.setClassname("高三一");
@@ -42,6 +43,8 @@ public class LambdaLearn2 {
         student4.setWeight(80.1);
         student4.setSex("男");
         List<Student> list =new ArrayList<>();
+
+        list.add(student);
         list.add(student);
         list.add(student1);
         list.add(student2);
@@ -49,9 +52,11 @@ public class LambdaLearn2 {
         list.add(student4);
         /////////////////
 //        int su=list.stream().collect(reducing(0,Student::getScored,Integer::sum));
-        Map<String,List<Student>> map=list.stream().collect(Collectors.groupingBy(Student::getSex));
-        System.out.println(map);
-
-
+        Map<String, Set<Student>>maps=list.stream().collect(groupingBy(Student::getSex, Collectors.toSet()));
+        System.out.println(maps);
+        Map<StudentEasy,List<Student>>maps2=list.stream().collect(groupingBy(t->new StudentEasy(t.getName(),t.getSex())));
+        System.out.println(maps2);
+        Map<String, Set<Student>>maps3=list.stream().collect(groupingBy(Student::getSex, LinkedHashMap::new, Collectors.toSet()));
+        System.out.println(maps3);
     }
 }
