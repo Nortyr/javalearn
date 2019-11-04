@@ -2,6 +2,8 @@ package com.uino.javalearn.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class LambdaLearn2 {
     public static void main(String []args){
@@ -47,7 +49,8 @@ public class LambdaLearn2 {
         list.add(student4);
         /////////////////
 //        int su=list.stream().collect(reducing(0,Student::getScored,Integer::sum));
-
+        Map<String,List<Student>> map=list.stream().collect(Collectors.groupingBy(Student::getSex));
+        System.out.println(map);
 
 
     }
