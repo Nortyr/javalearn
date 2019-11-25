@@ -9,4 +9,5 @@ public class Student {
     private double weight;
     private int scored;
     private String sex;
+
 }
