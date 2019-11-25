@@ -7,7 +7,15 @@ import static java.util.stream.Collectors.*;
 
 public class LambdaLearn4 {
     public static void main(String []args){
-        lambdaDemo9();
+        lambdaDemo10();
+    }
+
+    private static void lambdaDemo10() {
+        List<Student> list =getList();
+        System.out.println(list.stream().collect(mapping(Student::getScored,toList())));;
+        System.out.println(list.stream().collect(() -> new HashMap<>(), (a,b)->a.put(b.getScored(),b),Map::putAll));
+        System.out.println(list.stream().collect(groupingBy(Student::getScored,mapping(Student::getName,toList()))));
+        System.out.println(list.stream().collect(groupingBy(Student::getScored,groupingBy(Student::getSex))));
     }
 
     private static void lambdaDemo9() {
