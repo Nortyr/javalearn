@@ -1,4 +1,4 @@
-package com.uino.javalearn.concurrent;
+package com.uino.javalearn.concurrent.test1;
 
 public class CreateThread {
     public static void main(String[] args) {
