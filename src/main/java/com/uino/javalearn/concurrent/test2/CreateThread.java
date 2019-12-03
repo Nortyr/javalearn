@@ -2,9 +2,34 @@ package com.uino.javalearn.concurrent.test2;
 
 public class CreateThread {
     public static void main(String[] args) {
-        testConcurrent2();
+        testConcurrent6();
     }
-    
+
+    private static void testConcurrent6() {
+        MyThread5 t=new MyThread5();
+        Thread a=new Thread(t);
+        Thread b=new Thread(t);
+        Thread c=new Thread(t);
+        Thread d=new Thread(t);
+        Thread e=new Thread(t);
+
+        a.start();
+        b.start();
+        c.start();
+        d.start();
+        e.start();
+    }
+
+    private static void testConcurrent5() {
+        MyThread4 a=new MyThread4("A");
+        MyThread4 b=new MyThread4("B");
+        MyThread4 c=new MyThread4("C");
+        a.start();
+        b.start();
+        c.start();
+
+    }
+
     /**
     * @author 陈晖
     * @description :这下2个线程的run锁的是一个对象了，只有一个线程能循环
