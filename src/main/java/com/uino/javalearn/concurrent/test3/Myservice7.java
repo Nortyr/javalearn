@@ -1,4 +1,4 @@
-package com.uino.javalearn.concurrent.test4;
+package com.uino.javalearn.concurrent.test3;
 
 /**
 * @author 陈晖
@@ -17,7 +17,7 @@ public class Myservice7 implements MyService {
     }
 
     public  void task2() throws ClassNotFoundException {
-        synchronized (Class.forName("com.uino.javalearn.concurrent.test4.Myservice7")) {
+        synchronized (Class.forName("com.uino.javalearn.concurrent.test3.Myservice7")) {
             while (true) {
                 System.out.println("task2" + Thread.currentThread().getName());
             }

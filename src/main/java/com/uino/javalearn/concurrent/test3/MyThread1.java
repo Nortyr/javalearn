@@ -1,4 +1,4 @@
-package com.uino.javalearn.concurrent.test4;
+package com.uino.javalearn.concurrent.test3;
 
 public class MyThread1 implements Runnable{
     MyService myService=null;
