@@ -6,7 +6,32 @@ public class Run {
     private static Object o1=new Object();
 
     public static void main(String[] args) {
-        test4();
+        test6();
+    }
+
+    private static void test6() {
+        Thread t1=new Thread(()->{
+            while (true){
+                System.out.println("aaaaaa");
+            }
+        });
+        Thread t2=new Thread(()->{
+            while (true){
+                System.out.println("bbbbbb");
+            }
+        });
+        t1.start();
+        t2.start();
+    }
+
+    private static void test5() {
+        Thread thread=new Thread();
+        thread.start();
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void test4() {
