@@ -6,10 +6,44 @@ public class Run {
     private static Object o1=new Object();
 
     public static void main(String[] args) {
-        test2();
+        test3();
+    }
+
+    private static void test3() {
+        String lock="";
+        P p=new P(lock);
+        C c=new C(lock);
+        Thread t1=new Thread(()->{
+            try {
+                Thread.sleep(1000);
+                p.setValue();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        Thread t2=new Thread(()->{
+                c.getValue();
+        });
+        t1.start();
+        t2.start();
     }
 
     private static void test2() {
+        String lock="";
+        P p=new P(lock);
+        C c=new C(lock);
+        Thread t1=new Thread(()->{
+            while (true){
+                p.setValue();
+            }
+        });
+        Thread t2=new Thread(()->{
+            while (true){
+                c.getValue();
+            }
+        });
+        t1.start();
+        t2.start();
     }
 
 
