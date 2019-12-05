@@ -6,7 +6,32 @@ public class Run {
     private static Object o1=new Object();
 
     public static void main(String[] args) {
-        test3();
+        test4();
+    }
+
+    private static void test4() {
+        String lock="";
+        Thread t1=new Thread(()->{
+            synchronized (lock){
+
+                try {
+                    Thread.sleep(100000);
+                    lock.wait();
+                    System.out.println("it is wait");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        });
+        Thread t2=new Thread(()->{
+            synchronized (lock){
+                lock.notify();
+                System.out.println("it is notify");
+            }
+        });
+        t1.start();
+        t2.start();
     }
 
     private static void test3() {
