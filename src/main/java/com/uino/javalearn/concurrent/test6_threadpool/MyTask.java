@@ -7,7 +7,6 @@ class MyTask implements Runnable {
         this.taskNum = num;
     }
 
-    @Override
     public void run() {
         System.out.println("正在执行task "+taskNum);
         try {
