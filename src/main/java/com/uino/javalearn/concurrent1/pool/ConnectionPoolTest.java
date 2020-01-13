@@ -1,6 +1,5 @@
 package com.uino.javalearn.concurrent1.pool;
 
-import lombok.SneakyThrows;
 
 import java.sql.Connection;
 import java.sql.SQLException;
